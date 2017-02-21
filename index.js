@@ -1,16 +1,26 @@
 'use strict';
 
-const Restify = require("restify");
+const express = require("express");
 
-const server = Restify.createServer({
-    name: "CafeBot2"
-});
+var app = express();
 
-server.use(Restify.bodyParser());
-server.use(Restify.jsonp());
-const port_num = 8080; // to be decided
+app.get('/',function(req, res){
+    console.log("Get function is hit");
+    res.send("Helleo");
+})
 
-server.post('/practise',(req, res, next) => {
+// // 
+// const server = express.({
+//     name: "CafeBot2"
+// });
+
+
+ app.use(express.bodyParser());
+ app.use(express.jsonp());
+// //const port_num = 8080; // to be decided
+
+app.post('/practise',(req, res, next) => {
+    console.log("Init ..........");
     let {
         status,
         result
@@ -33,6 +43,7 @@ server.post('/practise',(req, res, next) => {
     return next;
 });
 
-server.listen((process.env.PORT || port_num, function() {
-    console.log("Server up and running");
-}));
+app.listen(3004, function() {
+    console.log("Server up and running 3004");
+});
+
