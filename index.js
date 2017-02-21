@@ -10,7 +10,7 @@ server.use(Restify.bodyParser());
 server.use(Restify.jsonp());
 const port_num = 8080; // to be decided
 
-server.post('/',(req, res, next) => {
+server.post('/practise',(req, res, next) => {
     let {
         status,
         result
