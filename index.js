@@ -20,6 +20,15 @@ server.post('/',(req, res, next) => {
         console.log("Recieved Status 200");
     }
 
+    let responseText = "Here is the result";
+    res.json({
+        speech: responseText,
+        displayText:responseText,
+        source:"practise-webhook"
+    }) ;
+
+    
+
     console.log(result);
     return next;
 });
